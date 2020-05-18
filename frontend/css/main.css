@@ -1,0 +1,65 @@
+h3 {
+  margin-top: 30px;
+  margin-bottom: 30px;
+}
+
+body {
+  margin-bottom: 50px;
+}
+
+footer {
+  position: fixed;
+  width: 100%;
+  bottom: 0;
+}
+
+.link {
+  color: white;
+}
+
+.title {
+  font-family: 'Courier New';
+  text-align: center;
+  margin-top: 100px;
+}
+
+.form-center {
+  margin: auto;
+}
+
+.index {
+  margin-top: 50px;
+  margin-bottom: 50px;
+}
+
+.jumbotron {
+  color: #0033cc;
+  padding: 1rem 2rem;
+}
+
+.jumbotron .title {
+  margin-top: 50px;
+}
+
+.navbar {
+    background-color: #0099cc;
+}
+
+.navbar a {
+    text-decoration: none;
+    color: white;
+    font-size: 22px;
+}
+
+.navbar img {
+    width: 50;
+    height: 50;
+    align-content: top;
+}
+
+footer {
+    color: white;
+    height: 50;
+    background-color: #0099cc;
+    text-align: center;
+}

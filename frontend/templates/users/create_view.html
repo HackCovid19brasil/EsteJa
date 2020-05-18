@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+{% load bootstrap4 %}
+{% block content %}
+
+<h1 class="title">Usuário</h1>
+<div class="container">
+  <form enctype="multipart/form-data" method="post" class="form">
+    {% csrf_token %}
+    {% bootstrap_form form_custom_user %}
+    {% bootstrap_form form_user %}
+    {% buttons %}
+      <center><button type="submit" class="btn btn-info">Cadastrar</button></center>
+    {% endbuttons %}
+  </form>
+</div>
+{% endblock %}

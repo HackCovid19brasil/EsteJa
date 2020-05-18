@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+{% block content %}
+{% load bootstrap4 %}
+<h1 class="title">Diagnosticar</h1>
+{% if mensagem %}
+<div class="container">
+  <div class="alert alert-info alert-dismissible fade show" role="alert">
+    <center><h1><strong>O diagnóstico é: </strong>{{ mensagem }}</h1><center>
+  </div>
+</div>
+{% endif %}
+<div class="container">
+  <form enctype="multipart/form-data" method="post">
+    {% csrf_token %}
+    <div class="row">
+      <div class="col-lg-12">
+        {% for field in form %}
+        {% bootstrap_field field %}
+        {% endfor %}
+      </div>
+    </div>
+    <br>
+    <center><button type="submit" class="btn btn-info">Diagnosticar</button></center>
+    <br>
+  </form>
+</div>
+{% endblock %}

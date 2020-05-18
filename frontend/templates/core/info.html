@@ -1,0 +1,194 @@
+{% extends 'base.html' %}
+
+{% block content %}
+{% load bootstrap4 %}
+<h3 class="title">Sobre o Projeto</h3>
+<div class="container">
+  <div class="jumbotron jumbotron-fluid">
+    <div class="container">
+      <h3>Introdução</h3>
+      <p><strong>Motivação:</strong></p>
+      <p>Segundo dados do Painel Coronavírus, plataforma atualizada diariamente pelo Ministério da Saúde
+        com o objetivo de ser o veículo oficial de comunicação sobre a situação epidemiológica do coronavírus
+        no Brasil, hoje, 17/05/2020, contamos com cerca de 233.142 casos confirmados, sendo 15.633 o número de
+        óbitos até o dado momento.</p>
+      <p>Tragicamente, tais números nos colocam à frente de países como a Itália e a
+        Espanha no que tange ao número total de casos causados pelo vírus.</p>
+      <p>Motivados por esta problemática, inspirados pela vontade de auxiliar a sociedade como um todo e baseados
+        no desafio D-051, do Hackcovid-19, que sugestiona a Ciência de Dados como potencial ferramenta de embate à
+        pandemia, nosso time tirou ideias do papel e trouxe à tona uma solução:</p>
+      <p>EsteJa, a plataforma de auxílio ao diagnóstico de COVID-19.</p>
+      <p>Seu nome é uma homenagem às pesquisadoras brasileiras (Este)r Sabino e (Ja)queline
+        Goes, que sequenciaram o genoma do coronavírus em apenas 48 horas.</p>
+    </div>
+  </div>
+  <div class="jumbotron jumbotron-fluid">
+    <div class="container">
+      <h3>Sobre a Plataforma</h3>
+      <p><strong>Esteja - Plataforma de Auxílio ao Diagnóstico de Covid-19</strong></p>
+      <p>O EsteJa utiliza aprendizado de máquina supervisionado para inferir se o paciente precisa ou não de atendimento
+        especializado a partir de dados dos seus exames.</p>
+      <p>Ao inserir estes dados, a ferramenta indica ao médico
+        se o paciente analisado possui perfil comum aos demais infectados pelo COVID-19.</p>
+      <p>A partir dessa análise, o médico possui subsídio estatístico para que as suas decisões
+        sejam melhor tomadas em relação ao encaminhamento do paciente.</p>
+      <p>A plataforma EsteJa é disponibilizada em uma aplicação web criada em Django e utiliza o modelo Decision Tree
+        J48, treinado com o auxílio do software Weka na base disponibilizada pelo Hospital Albert Einstein
+        [https://www.kaggle.com/einsteindata4u/covid19].</p>
+      <p>Os dados utilizados foram pré-processados e estudados de forma a possibilitar o alcance de resultados
+        satisfatórios em detrimento da pouca quantidade de dados e do pouco tempo de desenvolvimento.</p>
+    </div>
+  </div>
+  <div class="jumbotron jumbotron-fluid">
+    <div class="container">
+      <h3>Base de Dados e Análise</h3>
+      <p><strong>Pré-processamento:</strong></p>
+      <p>O pré-processamento consistiu em retirar as variáveis não adequadas para a análise,
+        isto é, variáveis que não apresentam explicabilidade na variável resposta (resultado do exame), tal como
+        a identificação do paciente. Posteriormente, retiramos as colunas que possuíam excessos de valores ausentes
+        e por fim removemos quaisquer linhas que apresentassem algum valor ausente. Ressaltamos que essa
+        metodologia, de retirar as observações ausentes, não é a mais adequada para o tratamento dos dados.
+        Entretanto, em razão do curto período de tempo para a realização do projeto e torná-lo factual
+        adotamos  esse critério.</p>
+      <li>Atributos removidos:</li>
+      <br>
+      <p>"Patient ID”, "Patient addmited to regular ward (1=yes, 0=no)", "Patient addmited to semi-intensive unit (1=yes, 0=no)",
+        "Patient addmited to intensive care unit (1=yes, 0=no)", "Serum Glucose", "Respiratory Syncytial Virus",
+        "Influenza A", "Influenza B", "Parainfluenza 1", "CoronavirusNL63", "Rhinovirus/Enterovirus",
+        "Mycoplasma pneumoniae", "Coronavirus HKU1", "Parainfluenza 3", "Chlamydophila pneumoniae", "Adenovirus",
+        "Parainfluenza 4", "Coronavirus229E", "CoronavirusOC43", "Inf A H1N1 2009", "Bordetella pertussis",
+        "Metapneumovirus", "Parainfluenza 2", "Neutrophils", "Urea", "Proteina C reativa mg/dL",
+        "Creatinine", "Potassium", "Sodium", "Influenza B, rapid test", "Influenza A, rapid test",
+        "Alanine transaminase", "Aspartate transaminase", "Gamma-glutamyltransferase ", "Total Bilirubin",
+        "Direct Bilirubin", "Indirect Bilirubin", "Alkaline phosphatase", "Ionized calcium ", "Strepto A",
+        "Magnesium", "pCO2 (venous blood gas analysis)", "Hb saturation (venous blood gas analysis)",
+        "Base excess (venous blood gas analysis)", "pO2 (venous blood gas analysis)", "Fio2 (venous blood gas analysis)",
+        "Total CO2 (venous blood gas analysis)", "pH (venous blood gas analysis)", "HCO3 (venous blood gas analysis)",
+        "Rods #", "Segmented", "Promyelocytes", "Metamyelocytes", "Myelocytes", "Myeloblasts", "Urine - Esterase",
+        "Urine - Aspect", "Urine - pH", "Urine - Hemoglobin", "Urine - Bile pigments", "Urine - Ketone Bodies",
+        "Urine - Nitrite", "Urine - Density", "Urine - Urobilinogen", "Urine - Protein", "Urine - Sugar",
+        "Urine - Leukocytes", "Urine - Crystals", "Urine - Red blood cells", "Urine - Hyaline cylinders",
+        "Urine - Granular cylinders", "Urine - Yeasts", "Urine - Color", "Partial thromboplastin time (PTT)",
+        "Relationship (Patient/Normal)", "International normalized ratio (INR)", "Lactic Dehydrogenase",
+        "Prothrombin time (PT), Activity", "Vitamin B12", "Creatine phosphokinase (CPK)", "Ferritin",
+        "Arterial Lactic Acid", "Lipase dosage", "D-Dimer", "Albumin", "Hb saturation (arterial blood gases)",
+        "pCO2 (arterial blood gas analysis)", "Base excess (arterial blood gas analysis)", "pH (arterial blood gas analysis)",
+        "Total CO2 (arterial blood gas analysis)", "HCO3 (arterial blood gas analysis)", "pO2 (arterial blood gas analysis)",
+        "Arteiral Fio2", "Phosphor", "ctO2 (arterial blood gas analysis)"
+      </p>
+      <li>Padronização dos atributos que permaneceram:</li>
+      <p>
+        <ul>
+          <li>"Patient age quantile" - "age"</li>
+          <li>"SARS-Cov-2 exam result" - "exam_covid"</li>
+          <li>"Hematocrit" - "hematocrit"</li>
+          <li>"Hemoglobin" - "hemoglobin"</li>
+          <li>"Platelets" - "platelets"</li>
+          <li>"Mean platelet volume" - "mpv"</li>
+          <li>"Red blood Cells" - "rbc"</li>
+          <li>"Lymphocytes" - "lymphocytes"</li>
+          <li>"Mean corpuscular hemoglobin concentration (MCHC)" - "mchc"</li>
+          <li>"Leukocytes" - "leukocytes"</li>
+          <li>"Basophils" - "basophils"</li>
+          <li>"Mean corpuscular hemoglobin (MCH)" - "mch"</li>
+          <li>"Eosinophils" - "eosinophils"</li>
+          <li>"Mean corpuscular volume (MCV)" - "mcv"</li>
+          <li>"Monocytes" - "monocytes"</li>
+          <li>"Red blood cell distribution width (RDW)" - "rdw"</li>
+        </ul>
+      </p>
+      <p><strong>Algoritmo utilizado:</strong></p>
+      <p>Decision Tree - J48</p>
+      <p><strong>Tecnologia utilizada:</strong></p>
+      <p>Software Weka</p>
+      <p><strong>Validação:</strong></p>
+      <p>Cross-validation com 10 folds</p>
+      <p><strong>Classe principal para decisão:</strong></p>
+      <p>exam_covid</p>
+      <a class="btn btn-info" href="{% url 'core:info_statistic' %}" role="button">Veja uma breve análise gráfica sobre a base aqui</a>
+    </div>
+  </div>
+  <div class="jumbotron jumbotron-fluid">
+    <div class="container">
+      <h3>Tecnologias da Plataforma</h3>
+      <p><strong>Back-end:</strong></p>
+      <ul>
+        <li>Python</li>
+        <li>Django</li>
+      </ul>
+      <p><strong>Front-end:</strong></p>
+      <ul>
+        <li>HTML</li>
+        <li>CSS</li>
+        <li>JavaScript</li>
+        <li>Bootstrap</li>
+      </ul>
+    </div>
+  </div>
+  <div class="jumbotron jumbotron-fluid">
+    <div class="container">
+      <h3>Limitações</h3>
+      <p><strong>Impedimentos:</strong></p>
+      <p>O maior desafio enfrentado pelo grupo foi o esparsamento dos dados relacionado ao vírus no Brasil.</p>
+      <p>A base utilizada (a melhor encontrada nas pesquisas realizadas pelo time) foi a do Hospital Israelita
+        Albert Einstein [https://www.kaggle.com/einsteindata4u/covid19], que possuía, inicialmente, 5644 instâncias
+        de 111 atributos;</p>
+      <p>depois de realizado o pré-processamento - que primou em manter a maior proporção de registros
+        x variáveis possível (uma vez que não adotamos registros com quaisquer campos nulos) - restaram apenas 598
+        instâncias de 16 atributos.</p>
+      <p>Além de, é claro, o pouco tempo que tivemos para integrar a equipe com skills
+        distintas, idealizar a ferramenta e tirá-la do papel.</p>
+      <p><strong>Conquistas:</strong></p>
+      <p>Nos orgulhamos de, apesar das numerosas limitações, termos alcançado a marca de 84,28% de classes
+        corretamente classificadas.</p>
+      <p>Das 598 observações, 478 foram classificadas como negativo para COVID-19
+        sendo realmente casos negativos;</p>
+      <p>26 foram classificadas como positivo sendo verdadeiramente positivos;</p>
+      <p>39 foram classificadas como positivo sendo, na verdade, negativos;</p>
+      <p>e 55 foram classificadas como negativo sendo,na verdade, positivos.</p>
+      <p>Certamente, com maior tempo para desenvolvimento/análise estatística e uma base menos esparsa em mãos,
+        os resultados tornar-se-iam ainda mais expressivos.</p>
+      <p><strong>Melhorias:</strong></p>
+      <ul>
+        <li>Mais dados</li>
+          <ul>
+            <li>Melhorar inferências</li>
+          </ul>
+        <li>Testar outros modelos</li>
+          <ul>
+            <li>Comparar performances</li>
+          </ul>
+        <li>Feature Engineering</li>
+        <ul>
+          <li>Correlacionar dados para encontrar informações importantes</li>
+        </ul>
+      </ul>
+    </div>
+  </div>
+  <div class="jumbotron jumbotron-fluid">
+    <div class="container">
+      <h3>Equipe</h3>
+      <h4><strong>Ana Paula da Silva Mendes</strong></h4>
+      <p>Ciência da Computação - UFPI</p>
+      <p>E-mail: anapaula@ufpi.edu.br</p>
+      <p>Github: <a href="https://github.com/anapaulamendes">anapaulamendes</a></p>
+      <p>Site: <a href="anapaulamendes.github.io">anapaulamendes.github.io</a></p>
+      <h4><strong>Giovana Daniele da Silva</strong></h4>
+      <p>Ciências da Computação - USP</p>
+      <p>E-mail: giovana.daniele@usp.br</p>
+      <p>Github: <a href="https://github.com/giovanadanieles">giovanadanieles</a></p>
+      <p>Site: <a href="#">-----</a></p>
+      <h4><strong>João Pedro A. S. Secundino</strong></h4>
+      <p>Ciências da Computação - USP</p>
+      <p>E-mail: jp.secundino@usp.br</p>
+      <p>Github: <a href="https://github.com/jpsecundino">jpsecundino</a></p>
+      <p>Site: <a href="#">-----</a></p>
+      <h4><strong>Renan de Oliveira da Cruz</strong></h4>
+      <p>Estatística - ICMC/USP</p>
+      <p>E-mail: r_oliveira@usp.br</p>
+      <p>Github: <a href="https://github.com/nan-oliveira">nan-oliveira</a></p>
+      <p>Site: <a href="#">-----</a></p>
+    </div>
+  </div>
+</div>
+{% endblock %}

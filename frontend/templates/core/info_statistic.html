@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+{% load bootstrap4 %}
+<h3 class="title">Uma breve análise gráfica sobre a base utilizada</h3>
+<div class="container">
+  <div class="jumbotron jumbotron-fluid">
+    <div class="container">
+      <center><img src="{% static 'img/pos-neg-result.png' %}" alt=""></center>
+      <br>
+      <p>A figura acima é referente a base de dados do Hospital Israelita Albert Einstein após um pré-processamento que
+        resultou em 598 observações de 16 variáveis. Por meio gráfico notamos, como esperado, um número maior de casos
+        que resultaram negativo (517) em relação aos exames que resultaram em positivo (81). Todavia, analisando os
+        números relativos, temos um percentual de 13,55% de pessoas que testaram positivo para Covid-19 na amostra
+        observada. Esse é número elevado se traçarmos um comparativo com o cenário brasileiro, isso pode indicar uma
+        demanda maior por testes do novo coronavírus.</p>
+      <br>
+      <center><img src="{% static 'img/age.png' %}" alt=""></center>
+      <br>
+      <p>Destacamos que no conjunto de dados analisado a variável “age” está estruturada de forma quantílica, ou seja,
+        não temos essa variável medida em anos mas sim a disposição dela em classes, a saber: o “0” (zero) corresponde ao
+        intervalo de 0 a 5 anos, o “1” corresponde ao intervalo de 6 a 10 anos, e assim consecutivamente até a classe “19”
+        que equivale às idades maiores ou iguais a 96 anos de idade.</p>
+      <p>Mediante ao gráfico do número de casos, positivos e negativos, distribuídos em relação às categorias de  idade,
+         temos, visualmente, um leve crescimento do número de casos, em ambos cenários possíveis, conforme aumenta-se a
+         idade. Isso sinaliza que um maior número de pessoas de mais idade estão sendo sendo submetidas a testes
+         clínicos para o novo coronavírus.</p>
+    </div>
+  </div>
+</div>
+{% endblock %}

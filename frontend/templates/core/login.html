@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+{% load bootstrap4 %}
+
+{% block content %}
+  {% if form.errors %}
+    <p>Seu usuário e senha estão incorretos. Por favor, tente novamente.</p>
+  {% endif %}
+  {% if next %}
+    {% if user.is_authenticated %}
+      <p>Você não possui acesso a esta plataforma.</p>
+    {% else %}
+      <p>Por favor logue para ter acesso.</p>
+    {% endif %}
+  {% endif %}
+  <h1 class="title">Login</h1>
+  <div class="container">
+    <form method="post" action="{% url 'core:login' %}">
+      {% csrf_token %}
+      {% for field in form %}
+          {% bootstrap_field field %}
+      {% endfor %}
+      <center><button type="submit" class="btn btn-info">Entrar</button></center>
+      <input type="hidden" name="next" value="{% url 'core:index' %}">
+    </form>
+    <p><a href="{% url 'users:create_view' %}">Cadastre-se</a></p>
+  </div>
+{% endblock %}

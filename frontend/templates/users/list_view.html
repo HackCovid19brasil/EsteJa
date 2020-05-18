@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<a href = "{% url 'users:create_view' %}">
+  <center><button type="button" class="btn btn-info btn-lg btn-block">Novo Usuário</button></center>
+</a>
+{% for user in users %}
+<div class="card text-center">
+  <div class="card-body">
+    <a href = "{% url 'users:visualizar' id=user.id %}"><h5 class="card-title">{{ user.username }}</h5></a>
+    <p class="card-text">{{ user.email }}</p>
+    <a href="{% url 'users:delete_view' id=user.id %}" class="btn btn-info">delete_view</a>
+  </div>
+</div>
+{% endfor %}
+{% endblock %}

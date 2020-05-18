@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="jumbotron jumbotron-fluid">
+  <div class="container">
+    <h1>{{ custom_user.name }}</h1>
+    <p>Registro:{{ custom_user.register }}</p>
+    <p>Email:{{ custom_user.email }}</p>
+    <p>Vínculo: {{ custom_user.type }}</p>
+    <p>Usuário: {{ custom_user.user }}</p>
+  </div>
+</div>
+{% endblock %}
